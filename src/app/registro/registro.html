@@ -2,7 +2,19 @@
 
 <form [formGroup]="formulario" (ngSubmit)="registrar()">
     <input formControlName="nombre" placeholder="Nombre">
+    @if (formulario.controls.nombre.touched && formulario.controls.nombre.invalid) {
+        <small class="error">El nombre es obligatorio</small>
+    }
+
     <input formControlName="email" type="email" placeholder="Email">
+    @if (formulario.controls.email.touched && formulario.controls.email.invalid) {
+        <small class="error">Ingresa un correo válido</small>
+    }
+
     <input formControlName="password" type="password" placeholder="Password">
+    @if (formulario.controls.password.touched && formulario.controls.password.invalid) {
+        <small class="error">La contraseña es obligatoria (mínimo 6 caracteres)</small>
+    }
+
     <button type="submit" [disabled]="formulario.invalid">Registrar</button>
 </form>
