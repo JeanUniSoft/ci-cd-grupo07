@@ -42,7 +42,7 @@ describe('Registro', () => {
     component.formulario.setValue({
       nombre: 'Luis',
       email: 'luis@gmail.com',
-      password: '123456'
+      password: '12345678'
     });
     expect(component.formulario.valid).toBe(true);
   });
