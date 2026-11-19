@@ -31,7 +31,7 @@ describe('Registro', () => {
     expect(email.valid).toBe(false);
   });
 
-  it('debe rechazar una contraseña de menos de 6 caracteres', () => {
+  it('debe rechazar una contraseña de menos de 8 caracteres', () => {
     const password = component.formulario.controls.password;
 
     password.setValue('123');
@@ -42,7 +42,7 @@ describe('Registro', () => {
     component.formulario.setValue({
       nombre: 'Luis',
       email: 'luis@gmail.com',
-      password: '123456'
+      password: '12345678'
     });
     expect(component.formulario.valid).toBe(true);
   });
