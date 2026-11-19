@@ -30,3 +30,21 @@ jobs:
             name: formulario-ci-build
             path: dist/formulario-ci/browser
             include-hidden-files: true
+
+    deploy:
+      needs: ci
+      if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+      runs-on: ubuntu-latest
+      steps:
+        - uses: actions/download-artifact@v8
+          with:
+            name: formulario-ci-build
+            path: build
+
+        - uses: SamKirkland/FTP-Deploy-Action@v4.4.0
+          with:
+            server: ${{ secrets.FTP_SERVER }}
+            username: ${{ secrets.FTP_USERNAME }}
+            password: ${{ secrets.FTP_PASSWORD }}
+            local-dir: ./build/
+            server-dir: /htdocs/
