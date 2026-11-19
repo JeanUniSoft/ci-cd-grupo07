@@ -29,3 +29,4 @@ jobs:
           with:
             name: formulario-ci-build
             path: dist/formulario-ci/browser
+            include-hidden-files: true
