@@ -13,7 +13,7 @@
 
     <input formControlName="password" type="password" placeholder="Password">
     @if (formulario.controls.password.touched && formulario.controls.password.invalid) {
-        <small class="error">La contraseña es obligatoria (mínimo 6 caracteres)</small>
+        <small class="error">La contraseña es obligatoria (mínimo 8 caracteres)</small>
     }
 
     <button type="submit" [disabled]="formulario.invalid">Registrar</button>
