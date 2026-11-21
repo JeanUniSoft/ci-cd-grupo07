@@ -19,8 +19,10 @@ export class Registro {
   }
 
   registrar() {
-    if (this.formulario.valid) {
-      console.log(this.formulario.value);
+    if (this.formulario.invalid) {
+      this.formulario.markAllAsTouched();
+      return;
     }
+    console.log(this.formulario.value);
   }
 }

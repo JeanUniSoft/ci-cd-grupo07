@@ -46,4 +46,11 @@ describe('Registro', () => {
     });
     expect(component.formulario.valid).toBe(true);
   });
+
+  it('debe marcar los campos como tocados al enviar vacío', () => {
+    component.registrar();
+    expect(component.formulario.controls.nombre.touched).toBe(true);
+    expect(component.formulario.controls.email.touched).toBe(true);
+    expect(component.formulario.controls.password.touched).toBe(true);
+  });
 });
